@@ -31,7 +31,6 @@ class WebpackConfig {
 	entry() {
 		return {
 			_common: path.resolve(__dirname, 'src/js/_common.js'),
-			browserSupport: path.resolve(__dirname, 'src/js/browserSupport.js'),
 		};
 	}
 
