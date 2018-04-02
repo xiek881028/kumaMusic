@@ -18,7 +18,7 @@
 						button.button.button-primary(type="submit") 搜索
 			canvas(id="evanyou-canvas")
 			.webInfo
-				a(href="https://github.com/xiek881028" target="_blank")
+				a(href="https://github.com/xiek881028/kumaMusic" target="_blank")
 					i.fa.fa-github
 					| xiek881028
 		div(is="BaseTips" :show="tipsShow" time="3000" @cb="tipsCallback" @afterLeave="tipsAfterLeave") {{tipsText}}
