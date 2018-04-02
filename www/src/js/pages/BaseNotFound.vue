@@ -1,0 +1,70 @@
+/*!
+* NotFound
+* create: 2017-12-14
+* since: 0.0.1
+*/
+
+<template lang="pug">
+	div(is="BaseLayout")
+		.indexBox
+			.infoBox
+				.title 404
+				.info 很抱歉，您访问的页面被八嘎猪吃掉惹
+				router-link.button.button-primary(:to="{name: 'home'}" replace) 返回首页
+			canvas(id="evanyou-canvas")
+</template>
+
+<script>
+import BaseLayout from './components/BaseLayout.vue';
+import Evanyou from '../../assets/evanyou.js';
+export default {
+	components: {
+		BaseLayout,
+		Evanyou,
+	},
+	mounted() {
+		Evanyou();
+	},
+}
+</script>
+
+<style lang="scss" scoped>
+.indexBox{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	canvas{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		z-index: 1;
+		pointer-events: none;
+	}
+	.infoBox{
+		position: relative;
+		z-index: 2;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		color: #2c3e50;
+		font-weight: bold;
+		.title{
+			font-size: 6rem;
+		}
+		.info{
+			font-size: 1.2rem;
+			padding: 1.5rem 0 2rem;
+		}
+	}
+}
+</style>

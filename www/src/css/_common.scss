@@ -1,0 +1,79 @@
+/*!
+* _common
+* create: 2017-12-1
+* since: 0.0.1
+*/
+
+@import 'reset';
+@import 'animate';
+
+html{
+	font-size: 12px;
+	box-sizing: border-box;
+}
+
+body, #app{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	background-color: #21252b;
+	color: #333;
+}
+
+.button{
+	color: #666;
+	background-color: #EEE;
+	border-color: #EEE;
+	font-weight: 300;
+	font-size: 1.33rem;
+	font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	text-decoration: none;
+	text-align: center;
+	line-height: 3.33rem;
+	height: 3.33rem;
+	padding: 0 3.33rem;
+	margin: 0;
+	display: inline-block;
+	appearance: none;
+	cursor: pointer;
+	border: none;
+	box-sizing: border-box;
+	&-small{
+		font-size: 1rem;
+		height: 2.5rem;
+		line-height: 2.5rem;
+		padding: 0 2.5rem;
+	}
+	&-primary{
+		background-color: #1B9AF7;
+		border-color: #1B9AF7;
+		color: #FFF;
+		&:visited{
+			color: #FFF;
+		}
+		&:hover, &:focus{
+			background-color: #4cb0f9;
+			border-color: #4cb0f9;
+			color: #FFF;
+		}
+		&:acitve, &.active{
+			background-color: #2798eb;
+			border-color: #2798eb;
+			color: #0880d7;
+		}
+	}
+}
+
+.hidden{
+	display: none !important;
+}
+
+.ellipsis{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-break: normal;
+}
