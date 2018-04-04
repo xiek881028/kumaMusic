@@ -16,7 +16,7 @@
   "author": "bagazhu (http://www.bagazhu.com)",
   "license": "GPL",
   "homepage": "http://www.bagazhu.com",
-  "devDependencies": {
+  "dependencies": {
     "yargs": "^10.0.3",
     "webpack": "^3.8.1",
     "node-sass": "^4.7.2",

@@ -8,7 +8,7 @@
 	div(is="BaseLayout")
 		div(is="BaseTips" :show="tipsShow" :time="tipsTime" @cb="tipsCallback" @afterLeave="tipsAfterLeave") {{tipsText}}
 		.audioBox.hidden
-			audio(:src="url" controls="false" preload="true" ref="audio" @canplay="canplay" @play="play" @pause="pause" @ended="ended" @error="error" @waiting="waiting" @loadedmetadata="loadedmetadata" @timeupdate="timeupdate")
+			audio(:src="url" controls="false" preload="true" ref="audio" @canplay="canplay" @play="play" @pause="pause" @ended="ended" @error="error" @waiting="waiting" @loadedmetadata="loadedmetadata" @timeupdate="timeupdate" @loadstart="loadstart")
 		.detailsBox
 			.gobackBox(v-if="canGoback")
 				a(href="javascript:;" @click="goback")
@@ -110,7 +110,7 @@ export default {
 		},
 	},
 	methods: {
-		getDetails(id) {
+		getDetails(id, mode) {
 			axios({
 				url: `http://api.music.bagazhu.com/${this.platform}/details`,
 				params: {
@@ -129,6 +129,9 @@ export default {
 						this.isPlay = false;
 						this.tipsText = '抱歉，音乐不支持试听与下载';
 						this.tipsShow = true;
+					}
+					if(mode == 'err'){
+						this.$refs.audio.load();
 					}
 					let image = new Image();
 					image.src = data.pic;
@@ -167,7 +170,6 @@ export default {
 				}
 			})
 			.catch(err=>{
-				console.log(err);
 				this.tipsText = '数据加载失败，请刷新页面重试';
 				this.tipsShow = true;
 			});
@@ -186,6 +188,8 @@ export default {
 		loadedmetadata() {
 			this.volume = this.audio.volume;
 			this.setTime();
+		},
+		loadstart() {
 			this.listenErr = true;
 		},
 		play() {
@@ -292,14 +296,14 @@ export default {
 			};
 		},
 		error() {
-			if(!this.listenErr)return;
+			if(!this.listenErr || !this.url)return;
 			this.barBtnshow = true;
 			if(this.errIndex < 2){
 				this.errIndex += 1;
 				this.$refs.audio.load();
 			}else if(this.errIndex == 2){
 				this.errIndex += 1;
-				this.getDetails(this.id);
+				this.getDetails(this.id, 'err');
 			}else{
 				this.tipsText = '音乐加载失败，请刷新页面重试';
 				this.tipsShow = true;
