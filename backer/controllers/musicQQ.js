@@ -37,7 +37,8 @@ const getUrl = async (ids, infoFlag=false)=>{
 	if(ids[0] != 0){
 		try {
 			let data = await axios.request({
-				url: `https://c.y.qq.com/v8/fcg-bin/fcg_play_single_song.fcg`,
+				// url: `https://c.y.qq.com/v8/fcg-bin/fcg_play_single_song.fcg`,
+				url: `https://c.y.qq.com/portalcgi/fcgi-bin/music_mini_portal/fcg_getuser_infoEx.fcg`,
 				params: {
 					format: 'json',
 					songmid: ids[2],
