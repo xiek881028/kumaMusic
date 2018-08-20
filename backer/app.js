@@ -43,6 +43,6 @@ app
 			message: '404 not found',
 		};
 	})
-	;
+  ;
 
-app.listen(20040, () => app.context.logger.info(`${pkg.name} is running ${20040}.`));
+app.listen(80, () => app.context.logger.info(`${pkg.name} is running 80.`));
