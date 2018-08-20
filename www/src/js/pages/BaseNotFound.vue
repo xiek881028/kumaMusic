@@ -9,7 +9,7 @@
 		.indexBox
 			.infoBox
 				.title 404
-				.info 很抱歉，您访问的页面被八嘎猪吃掉惹
+				.info 很抱歉，您访问的页面被小萌萌吃掉惹
 				router-link.button.button-primary(:to="{name: 'home'}" replace) 返回首页
 			canvas(id="evanyou-canvas")
 </template>
@@ -57,7 +57,6 @@ export default {
 		align-items: center;
 		flex-direction: column;
 		color: #2c3e50;
-		font-weight: bold;
 		.title{
 			font-size: 6rem;
 		}

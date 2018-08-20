@@ -48,13 +48,13 @@ const getUrl = async (ids, infoFlag=false)=>{
 			});
 			if(infoFlag){
 				url = {};
-				url.url = `http://${data.data.url[ids[0]]}`;
+				url.url = `http://${data.data.url[ids[0]].replace(/^(ws){1}/, 'dl')}`;
 				url.name = data.data.data[0].title;
 				url.artists = data.data.data[0].singer.map((_item) => {
 					return _item.name;
 				}).join('/');
 			}else{
-				url = `http://${data.data.url[ids[0]]}`;
+				url = `http://${data.data.url[ids[0]].replace(/^(ws){1}/, 'dl')}`;
 			}
 		} catch (err) {
 			url = '';
