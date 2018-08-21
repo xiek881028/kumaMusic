@@ -15,7 +15,7 @@ module.exports = {
 			"watch_options": {
 				"followSymlinks": false
 			},
-			"error_file": "./logs/app-err.log", // 错误日志路径
+			"error_file": "./logs/app-out.log", // 错误日志路径
 			"out_file": "./logs/app-out.log", // 普通日志路径
 			"env": {
 				"NODE_ENV": "development"
