@@ -112,7 +112,8 @@ router
           cr: 1,
           p: query.page,
           n: query.limit,
-          w: encodeURI(query.key),
+          // w: encodeURI(query.key),
+          w: query.key,
         },
         headers: {
           Referer: 'http://y.qq.com/',
